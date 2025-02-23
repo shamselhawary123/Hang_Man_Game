@@ -1,0 +1,316 @@
+*{
+    box-sizing: border-box;
+}
+:root{
+    --hr-color: #222;
+    --hr-width: 4px;
+}
+body{
+    font-family: 'Roboto', sans-serif;
+}
+.container{
+    width: 1000px;
+    margin: 20px auto;
+}
+.row{
+    display: flex;
+}
+hr{
+    border: 1px solid #eee;
+}
+
+.game-info{
+display: flex;
+    .game-name{
+        flex: 1;
+        font-size: 20px;
+        font-weight: bold;
+    }
+    .category{
+        flex: 1;
+        text-align: right;
+        span{
+            text-transform: capitalize;
+            font-weight: bold;
+            font-size: 20px;
+            color: #e91e63;
+        }
+    }
+}
+
+.wrong {
+                                display: block;
+}
+.row{
+    .hangman-draw{
+        flex: 1;
+        background-color: #e8e8e8;
+        padding: 20px;
+        height: 324px;
+        .the-draw{
+            width: 60px;
+            height: 280px;
+            border-bottom: var(--hr-width) solid var(--hr-color);
+            position: relative;
+            margin: auto;
+            left: -60px;
+            display: none;
+            .stand{
+                display: none;
+            }
+            .stand::before{
+                content: '';
+                position: absolute;
+                width: var(--hr-width);
+                height: 100%;
+                background-color: var(--hr-color);
+                margin-left: -2px;
+                left: 50%;
+            }
+            .hang{
+                display: none;
+            }
+            .hang::before{
+                content: '';
+                position: absolute;
+                width: 102px;
+                height: var(--hr-width);
+                background-color: var(--hr-color);
+                left: 30px;
+                top: 15px;
+            }
+            .hang::after{
+                content: '';
+                position: absolute;
+                width: var(--hr-width);
+                height: 30px;
+                background-color: var(--hr-color);
+                right: -74px;
+                top: 15px;
+            }
+            .rope{
+                position: absolute;
+                width: 70px;
+                height: 70px;
+                border-radius: 50%;
+                border: var(--hr-width) dashed var(--hr-color);
+                top: 41px;
+                left: 95px;
+                display: none;
+            }
+            .the-man{
+                .head{
+                    position: absolute;
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                    border: var(--hr-width) solid var(--hr-color);
+                    top: 50px;
+                    left: 106px;
+                    display: none;
+                }
+                .body{
+                    position: absolute;
+                    width: var(--hr-width);
+                    height: 110px;
+                    background-color: var(--hr-color);
+                    top: 97px;
+                    left: 131px;
+                    display: none;
+                    }
+                }
+                .hands{
+                    display: none;
+                }
+                .hands::before{
+                    content: '';
+                    position: absolute;
+                    width: 50px;
+                    height: var(--hr-width);
+                    background-color: var(--hr-color);
+                    top: 131px;
+                      left: 91px;
+                    transform: rotate(45deg);
+                }
+                .hands::after{
+                    content: '';
+                    position: absolute;
+                    width: 50px;
+                    height: var(--hr-width);
+                    background-color: var(--hr-color);
+                    top: 130px;
+                    left: 126px;
+                    transform: rotate(-45deg);
+                }
+
+                
+                
+                .legs{
+                    display: none;
+                }
+
+                    .legs::before{
+                        content: '';
+                        position: absolute;
+                        width: 50px;
+                        height: var(--hr-width);
+                        background-color: var(--hr-color);
+                        bottom: 53px;
+                        left: 126px;
+                        transform: rotate(45deg);
+                    }
+                    .legs::after{
+                        content: '';
+                        position: absolute;
+                        width: 50px;
+                        height: var(--hr-width);
+                        background-color: var(--hr-color);
+                        bottom: 53px;
+                        left: 90px;
+                        transform: rotate(-45deg);
+                    }
+                }
+            }
+                        .hangman-draw.wrong-1 .the-draw{
+                            display: block;
+                        }
+                        .hangman-draw.wrong-2 .stand{
+                            display: block;
+                        }
+                        .hangman-draw.wrong-3 .hang{
+                            display: block;
+                        }
+                        .hangman-draw.wrong-4 .rope{
+                            display: block;
+                        }
+                        .hangman-draw.wrong-5 .head{
+                            display: block !important;
+                        }
+                        .hangman-draw.wrong-6 .body{
+                            display: block !important;
+                        }
+                        .hangman-draw.wrong-7 .hands{
+                            display: block;
+                        }
+                        .hangman-draw.wrong-8 .legs{
+                            display: block;
+                        }
+        .lettres{
+            flex: 1;
+            padding: 15px;
+            text-align: center;
+            .letter-box{
+                display: inline-block;
+                width: 40px;
+                height: 40px;
+                border: 1px solid #ddd;
+                background-color: #dd7a1d;
+                color: #fff;
+                border-radius: 8px;
+                margin: 5px;
+                text-align: center;
+                line-height: 40px;
+                font-size: 25px;
+                font-weight: bold;
+                cursor: pointer;
+                &:hover{
+                    background-color: #904d0f;
+                    color: white;
+                    transition: .5s;
+                }
+            &.clicked {
+                background-color: #222;
+                opacity: .2;
+                pointer-events: none;
+                transition: .2s;
+            }
+            }
+        }
+        .lettres.finished{
+          pointer-events: none;
+        }
+        }
+    
+
+.letters-guess {
+    margin: 10px auto;
+    padding: 20px;
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    min-height: 104px;
+}
+.letters-guess span {
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+    text-align: center;
+    line-height: 60px;
+    text-transform: uppercase;
+    border-bottom: 3px solid #333;
+    background-color: #fdfdfd;
+    font-weight: bold;
+    margin-right: 12px;
+    border-radius: 3px;
+
+}
+.letters-guess span.has-space {
+    border: none;
+    background: none;
+    position: relative;
+}
+.letters-guess span.has-space:before {
+    content: '';
+    width: 20px;
+    height: 4px;
+    background-color: #333;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+
+.success{
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+
+.game-over{
+    background-color: rgb(211, 12, 12);
+      color: white;
+      padding: 10px;
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+      border-radius: 5px;
+      margin-top: 20px;
+}
+
+
+
+
+
+footer {
+    text-align: center;
+    position: fixed;
+    font-size: 20px;
+    font-weight: bold;
+    /* color: white; */
+    color: black;
+    background-color: #ddd;
+    /* background-color: #333; */
+    padding: 20px;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
